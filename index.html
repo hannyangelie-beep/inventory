@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game Pemain JS</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white flex flex-col items-center justify-center min-h-screen">
+  <h1 class="text-3xl font-bold mb-6">🎮 Mini Game Pemain</h1>
+
+  <div id="game-area" class="grid grid-cols-2 gap-10">
+    <!-- Pemain 1 -->
+    <div class="bg-gray-800 p-6 rounded-xl shadow-lg text-center">
+      <h2 class="text-2xl mb-2" id="nama1">Andi</h2>
+      <p>Energi: <span id="energi1">10</span></p>
+      <div class="mt-4 space-x-2">
+        <button onclick="pemain1.makan(2); updateUI();" class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg">Makan 🍗</button>
+        <button onclick="pemain1.damage(3); updateUI();" class="bg-red-500 hover:bg-red-600 px-4 py-2 rounded-lg">Kena Damage 💥</button>
+        <button onclick="pemain1.serang(pemain2); updateUI();" class="bg-yellow-500 hover:bg-yellow-600 px-4 py-2 rounded-lg">Serang ⚔️</button>
+      </div>
+      <div class="mt-4">
+        <p class="mb-2">Inventory Senjata:</p>
+        <div id="inventory1" class="grid grid-cols-2 gap-2">
+        </div>
+      </div>
+    </div>
+
+    <!-- Pemain 2 -->
+    <div class="bg-gray-800 p-6 rounded-xl shadow-lg text-center">
+      <h2 class="text-2xl mb-2" id="nama2">Donny</h2>
+      <p>Energi: <span id="energi2">11</span></p>
+      <div class="mt-4 space-x-2">
+        <button onclick="pemain2.makan(2); updateUI();" class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg">Makan 🍗</button>
+        <button onclick="pemain2.damage(3); updateUI();" class="bg-red-500 hover:bg-red-600 px-4 py-2 rounded-lg">Kena Damage 💥</button>
+        <button onclick="pemain2.serang(pemain1); updateUI();" class="bg-yellow-500 hover:bg-yellow-600 px-4 py-2 rounded-lg">Serang ⚔️</button>
+      </div>
+      <div class="mt-4">
+        <p class="mb-2">Inventory Senjata:</p>
+        <div id="inventory2" class="grid grid-cols-2 gap-2">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tombol Reset -->
+  <button onclick="resetGame()" class="mt-10 bg-blue-500 hover:bg-blue-600 px-6 py-3 rounded-lg">🔁 Reset Game</button>
+
+  <audio id="soundMakan" src="https://actions.google.com/sounds/v1/foley/knife_cutting_food.ogg"></audio>
+  <audio id="soundDamage" src="https://actions.google.com/sounds/v1/human_voices/human_grunt.ogg"></audio>
+
+  <script src="lanjutanGame.js"></script>
+</body>
+</html>
